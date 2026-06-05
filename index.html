@@ -1,0 +1,1615 @@
+v```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Journey For Someone Special ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:linear-gradient(-45deg,#ff4d8d,#ff85b3,#ffb6d9,#ffd6ec);
+background-size:400% 400%;
+animation:bgMove 10s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.screen{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+text-align:center;
+}
+
+.active{
+display:flex;
+}
+
+.glass{
+width:90%;
+max-width:700px;
+padding:35px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+border-radius:25px;
+box-shadow:0 8px 32px rgba(0,0,0,.2);
+color:white;
+}
+
+h1{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+h2{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+p{
+line-height:1.8;
+margin-bottom:15px;
+}
+
+input{
+width:300px;
+padding:15px;
+border:none;
+outline:none;
+border-radius:30px;
+font-size:1rem;
+text-align:center;
+margin-top:15px;
+}
+
+button{
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff3f85;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.heart{
+position:absolute;
+color:white;
+pointer-events:none;
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+100%{
+transform:translateY(-120px);
+opacity:1;
+}
+}
+
+#nameReveal{
+font-size:5rem;
+font-weight:bold;
+text-shadow:
+0 0 10px white,
+0 0 20px white,
+0 0 40px white;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+.smallText{
+font-size:1.2rem;
+margin-top:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+<div id="heartContainer"></div>
+
+<!-- LAYER 1 -->
+
+<section class="screen active" id="layer1">
+
+<div class="glass">
+
+<h1>❤️ A Special Journey ❤️</h1>
+
+<p>
+Made with affection by
+<b>Aditya</b>
+</p>
+
+<p>
+Before we begin...
+May I know the name of the girl who brightens my world?
+</p>
+
+<input
+type="text"
+id="girlName"
+placeholder="Enter Your Beautiful Name">
+
+<br>
+
+<button onclick="startJourney()">
+Begin The Journey ✨
+</button>
+
+</div>
+
+</section>
+
+<!-- LAYER 2 -->
+
+<section class="screen" id="layer2">
+
+<div class="glass">
+
+<h2>Your Name Looks Beautiful ❤️</h2>
+
+<div id="nameReveal"></div>
+
+<p class="smallText">
+Some names are simply words...
+while some become favorite thoughts.
+</p>
+
+<button onclick="goToRoseDay()">
+Continue To Rose Garden 🌹
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+/* HEART ANIMATION */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*20+15)+"px";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,250);
+
+/* LAYER CHANGE */
+
+function startJourney(){
+
+let name=
+document.getElementById("girlName").value;
+
+if(name===""){
+alert("Please enter your name ❤️");
+return;
+}
+
+document.getElementById("layer1")
+.classList.remove("active");
+
+document.getElementById("layer2")
+.classList.add("active");
+
+showHeartName(name);
+
+}
+
+/* HEART NAME EFFECT */
+
+function showHeartName(name){
+
+let display=
+document.getElementById("nameReveal");
+
+display.innerHTML="❤️ "+name+" ❤️";
+
+}
+
+/* NEXT PAGE PLACEHOLDER */
+
+
+</script>
+```html
+<!-- ========================= -->
+<!-- LAYER 3 : ROSE GARDEN 🌹 -->
+<!-- ========================= -->
+
+<section class="screen" id="layer3">
+
+<div class="glass">
+
+<div id="roseGarden">
+
+<h1>🌹</h1>
+
+<h2>A Rose For You</h2>
+
+<p id="roseMessage">
+</p>
+
+<button onclick="openLetter()">
+Open A Secret Letter 💌
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- LAYER 4 : LETTER 💌 -->
+<!-- ========================= -->
+
+<section class="screen" id="layer4">
+
+<div class="glass">
+
+<h2>💌 A Little Letter</h2>
+
+<div id="letterBox"></div>
+
+<br>
+
+<button onclick="openGiftSection()">
+Continue 🎁
+</button>
+
+</div>
+
+</section>
+
+<style>
+
+#roseGarden{
+position:relative;
+overflow:hidden;
+}
+
+.petal{
+position:absolute;
+font-size:22px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-100px) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(100vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+#letterBox{
+
+font-size:1.1rem;
+line-height:2;
+min-height:220px;
+white-space:pre-wrap;
+
+}
+
+</style>
+
+<script>
+
+/* REPLACE OLD FUNCTION */
+
+function goToRoseDay(){
+
+document.getElementById("layer2")
+.classList.remove("active");
+
+document.getElementById("layer3")
+.classList.add("active");
+
+const name =
+document.getElementById("girlName").value;
+
+document.getElementById("roseMessage")
+.innerHTML =
+
+"Dear " + name +
+
+", every rose in this garden seems incomplete compared to the beauty of your smile. Some people become memories, while some become reasons to smile every day. Thank you for unknowingly becoming one of my favorite thoughts.";
+
+createPetals();
+
+}
+
+/* PETALS */
+
+function createPetals(){
+
+for(let i=0;i<60;i++){
+
+let petal=document.createElement("div");
+
+petal.classList.add("petal");
+
+petal.innerHTML="🌸";
+
+petal.style.left=
+Math.random()*100+"vw";
+
+petal.style.animationDuration=
+(Math.random()*5+4)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},9000);
+
+}
+
+}
+
+/* LETTER PAGE */
+
+function openLetter(){
+
+document.getElementById("layer3")
+.classList.remove("active");
+
+document.getElementById("layer4")
+.classList.add("active");
+
+typeLetter();
+
+}
+
+let typingStarted=false;
+
+function typeLetter(){
+
+if(typingStarted) return;
+
+typingStarted=true;
+
+const name=
+document.getElementById("girlName").value;
+
+const text =
+
+"Dear " + name + ",\n\n" +
+
+"Life introduces us to many people, yet only a few leave a lasting impression.\n\n" +
+
+"Your kindness, your smile and the way you carry yourself have quietly become something I admire.\n\n" +
+
+"I don't know what tomorrow holds, but I do know that meeting you has made ordinary days feel a little brighter.\n\n" +
+
+"— Aditya ❤️";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("letterBox")
+.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(type,35);
+
+}
+
+}
+
+type();
+
+}
+
+/* PLACEHOLDER FOR PART 3 */
+
+
+</script>
+```
+```html id="6qkj91"
+<!-- ========================= -->
+<!-- LAYER 5 : GIFT SECTION 🎁 -->
+<!-- ========================= -->
+
+<section class="screen" id="layer5">
+
+<div class="glass">
+
+<h2>🎁 A Few Small Gifts</h2>
+
+<p>
+Choose any gift you like...
+</p>
+
+<div class="giftArea">
+
+<div class="giftItem"
+onclick="showGiftMessage('🧸 A teddy because comfort and warmth deserve a symbol.')">
+🧸
+</div>
+
+<div class="giftItem"
+onclick="showGiftMessage('🍫 A chocolate for all the sweetness you bring into conversations.')">
+🍫
+</div>
+
+<div class="giftItem"
+onclick="showGiftMessage('🌹 One more rose, because one was never enough.')">
+🌹
+</div>
+
+<div class="giftItem"
+onclick="showGiftMessage('✨ Some people make ordinary moments special. You are one of them.')">
+💎
+</div>
+
+</div>
+
+<div id="giftMessage"></div>
+
+<button onclick="openFinalChapter()">
+Continue To Final Chapter 🌙
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FINAL CHAPTER ❤️ -->
+<!-- ========================= -->
+
+<section class="screen" id="layer6">
+
+<div class="glass">
+
+<div class="bigHeart">
+❤️
+</div>
+
+<h2>The Final Chapter</h2>
+
+<p id="finalMessage"></p>
+
+<button onclick="launchStars()">
+Shall We Create More Memories Together? ✨
+</button>
+
+</div>
+
+</section>
+
+<style>
+
+.giftArea{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+margin-top:20px;
+margin-bottom:20px;
+
+}
+
+.giftItem{
+
+font-size:4rem;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.giftItem:hover{
+
+transform:scale(1.25) rotate(8deg);
+
+}
+
+#giftMessage{
+
+margin-top:20px;
+font-size:1.1rem;
+line-height:1.8;
+min-height:70px;
+
+}
+
+.bigHeart{
+
+font-size:8rem;
+animation:heartbeat 1.2s infinite;
+
+}
+
+@keyframes heartbeat{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+
+}
+
+.spark{
+
+position:absolute;
+font-size:25px;
+pointer-events:none;
+animation:sparkFly 3s linear forwards;
+
+}
+
+@keyframes sparkFly{
+
+0%{
+opacity:1;
+transform:translateY(0);
+}
+
+100%{
+opacity:0;
+transform:translateY(-300px);
+}
+
+}
+
+</style>
+
+<script>
+
+/* REPLACE PLACEHOLDER */
+
+function openGiftSection(){
+
+document.getElementById("layer4")
+.classList.remove("active");
+
+document.getElementById("layer5")
+.classList.add("active");
+
+}
+
+/* GIFT MESSAGE */
+
+function showGiftMessage(text){
+
+document.getElementById("giftMessage")
+.innerHTML=text;
+
+}
+
+/* FINAL PAGE */
+
+function openFinalChapter(){
+
+document.getElementById("layer5")
+.classList.remove("active");
+
+document.getElementById("layer6")
+.classList.add("active");
+
+const name =
+document.getElementById("girlName").value;
+
+document.getElementById("finalMessage")
+.innerHTML =
+
+"Dear " + name +
+
+", sometimes a person arrives unexpectedly and quietly becomes the favorite part of an ordinary day.<br><br>" +
+
+"Meeting you has added color to moments that once felt ordinary.<br><br>" +
+
+"I don't know what the future holds, but I know that knowing you has been one of the nicest parts of my story.<br><br>" +
+
+"If life is a book, I'd be happy if a few of my favorite chapters included you. ❤️";
+
+}
+
+/* STARS */
+
+function launchStars(){
+
+for(let i=0;i<150;i++){
+
+let spark=document.createElement("div");
+
+spark.classList.add("spark");
+
+spark.innerHTML=
+Math.random()>0.5 ? "✨" : "❤️";
+
+spark.style.left=
+Math.random()*100+"vw";
+
+spark.style.top=
+Math.random()*100+"vh";
+
+spark.style.animationDuration=
+(Math.random()*2+2)+"s";
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+spark.remove();
+},4000);
+
+}
+
+setTimeout(()=>{
+
+alert(
+"Thank you for taking this little journey ❤️\n\n— Aditya"
+);
+
+},1000);
+
+}
+
+</script>
+```
+```html id="v7mn22"
+<!-- ========================= -->
+<!-- MEMORY GALLERY 📸 -->
+<!-- ========================= -->
+
+<section class="screen" id="layer7">
+
+<div class="glass">
+
+<h2>📸 Little Moments</h2>
+
+<p>
+Every story is made of small moments.
+</p>
+
+<div class="gallery">
+
+<div class="memoryCard">
+✨ The first conversation
+</div>
+
+<div class="memoryCard">
+😊 The first smile
+</div>
+
+<div class="memoryCard">
+🌸 A memorable moment
+</div>
+
+<div class="memoryCard">
+❤️ A favorite memory
+</div>
+
+</div>
+
+<button onclick="showMagicName()">
+One Last Surprise ✨
+</button>
+
+</div>
+
+</section>
+
+<!-- HEART NAME SCREEN -->
+
+<section class="screen" id="layer8">
+
+<div class="glass">
+
+<h2>A Name Worth Remembering ❤️</h2>
+
+<canvas id="heartCanvas"></canvas>
+
+<div id="magicName"></div>
+
+<button onclick="launchUniverse()">
+Final Surprise 🌙
+</button>
+
+</div>
+
+</section>
+
+<style>
+
+.gallery{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:15px;
+margin-top:20px;
+
+}
+
+.memoryCard{
+
+padding:20px;
+border-radius:20px;
+background:
+rgba(255,255,255,.15);
+
+transition:.4s;
+
+}
+
+.memoryCard:hover{
+
+transform:translateY(-10px);
+
+}
+
+#heartCanvas{
+
+width:100%;
+height:250px;
+
+}
+
+#magicName{
+
+font-size:3rem;
+font-weight:bold;
+margin-top:20px;
+
+text-shadow:
+0 0 10px white,
+0 0 20px white,
+0 0 40px white;
+
+}
+
+.firefly{
+
+position:absolute;
+font-size:18px;
+pointer-events:none;
+animation:fireflyMove 8s linear infinite;
+
+}
+
+@keyframes fireflyMove{
+
+0%{
+transform:translate(0,0);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:
+translate(150px,-200px);
+opacity:0;
+}
+
+}
+
+.musicBtn{
+
+position:fixed;
+top:20px;
+right:20px;
+z-index:999;
+
+padding:10px 20px;
+border:none;
+border-radius:30px;
+
+}
+
+</style>
+
+<button
+class="musicBtn"
+onclick="toggleMusic()">
+🎵 Music
+</button>
+
+<audio
+id="bgMusic"
+loop>
+
+<source
+src="music.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<script>
+
+/* OPEN GALLERY */
+
+function launchStars(){
+
+for(let i=0;i<150;i++){
+
+let spark=document.createElement("div");
+
+spark.classList.add("spark");
+
+spark.innerHTML=
+Math.random()>0.5?"❤️":"✨";
+
+spark.style.left=
+Math.random()*100+"vw";
+
+spark.style.top=
+Math.random()*100+"vh";
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+spark.remove();
+},3000);
+
+}
+
+setTimeout(()=>{
+
+document.getElementById("layer6")
+.classList.remove("active");
+
+document.getElementById("layer7")
+.classList.add("active");
+
+},1500);
+
+}
+
+/* SHOW NAME MAGIC */
+
+function showMagicName(){
+
+document.getElementById("layer7")
+.classList.remove("active");
+
+document.getElementById("layer8")
+.classList.add("active");
+
+const name=
+document.getElementById("girlName").value;
+
+document.getElementById("magicName")
+.innerHTML=
+"❤️ " + name + " ❤️";
+
+heartBurst();
+
+}
+
+/* HEART BURST */
+
+function heartBurst(){
+
+for(let i=0;i<120;i++){
+
+let h=document.createElement("div");
+
+h.classList.add("firefly");
+
+h.innerHTML="❤️";
+
+h.style.left=
+(window.innerWidth/2)+"px";
+
+h.style.top=
+(window.innerHeight/2)+"px";
+
+h.style.animationDuration=
+(Math.random()*4+3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},8000);
+
+}
+
+}
+
+/* MUSIC */
+
+let playing=false;
+
+function toggleMusic(){
+
+let music=
+document.getElementById("bgMusic");
+
+if(!playing){
+
+music.play();
+
+playing=true;
+
+}else{
+
+music.pause();
+
+playing=false;
+
+}
+
+}
+
+/* FINAL SURPRISE */
+
+function launchUniverse(){
+
+const name=
+document.getElementById("girlName").value;
+
+alert(
+
+name +
+
+", thank you for reaching the end of this little journey.\n\nSome people leave footprints in memories.\nSome leave them in hearts.\n\n— Aditya ❤️"
+
+);
+
+}
+
+</script>
+```
+```html
+<!-- ========================= -->
+<!-- LAYER 9 : MAGIC MOMENT ❤️ -->
+<!-- ========================= -->
+
+<section class="screen" id="layer9">
+
+<div class="glass">
+
+<h2>✨ One More Thing...</h2>
+
+<div id="countdownText">
+Preparing something special...
+</div>
+
+<div id="hugeName"></div>
+
+<div id="complimentBox"></div>
+
+<button onclick="startHeartRain()">
+Touch The Heart ❤️
+</button>
+
+</div>
+
+</section>
+
+<style>
+
+#countdownText{
+font-size:2rem;
+margin:20px 0;
+font-weight:bold;
+}
+
+#hugeName{
+font-size:5rem;
+font-weight:bold;
+margin-top:20px;
+text-shadow:
+0 0 10px white,
+0 0 25px white,
+0 0 50px pink;
+}
+
+#complimentBox{
+margin-top:25px;
+font-size:1.2rem;
+min-height:60px;
+}
+
+.rainHeart{
+position:absolute;
+font-size:25px;
+pointer-events:none;
+animation:rainFall linear forwards;
+}
+
+@keyframes rainFall{
+
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+}
+
+</style>
+
+<script>
+
+/* REPLACE launchUniverse() */
+
+function launchUniverse(){
+
+document.getElementById("layer8")
+.classList.remove("active");
+
+document.getElementById("layer9")
+.classList.add("active");
+
+startCountdown();
+
+}
+
+function startCountdown(){
+
+let count=5;
+
+let timer=setInterval(()=>{
+
+document.getElementById("countdownText")
+.innerHTML=
+count;
+
+count--;
+
+if(count<0){
+
+clearInterval(timer);
+
+showSpecialName();
+
+}
+
+},1000);
+
+}
+
+function showSpecialName(){
+
+const name=
+document.getElementById("girlName").value;
+
+document.getElementById("countdownText")
+.innerHTML=
+"❤️";
+
+document.getElementById("hugeName")
+.innerHTML=
+name;
+
+rotateCompliments();
+
+}
+
+/* COMPLIMENTS */
+
+const compliments=[
+
+"Your smile can brighten ordinary days ✨",
+
+"Some people become favorite memories ❤️",
+
+"You make moments feel lighter 🌸",
+
+"Kindness looks beautiful on you 💕",
+
+"The world needs more people like you 🌎"
+
+];
+
+let complimentIndex=0;
+
+function rotateCompliments(){
+
+setInterval(()=>{
+
+document.getElementById("complimentBox")
+.innerHTML=
+compliments[complimentIndex];
+
+complimentIndex++;
+
+if(
+complimentIndex>=compliments.length
+){
+complimentIndex=0;
+}
+
+},2500);
+
+}
+
+/* HEART RAIN */
+
+function startHeartRain(){
+
+for(let i=0;i<250;i++){
+
+let heart=
+document.createElement("div");
+
+heart.classList.add("rainHeart");
+
+heart.innerHTML=
+Math.random()>0.5 ? "❤️" : "💖";
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+}
+
+</script>
+```
+```html id="rj9a21"
+<!-- ========================= -->
+<!-- LAYER 10 : HEART PARTICLES -->
+<!-- ========================= -->
+
+<section class="screen" id="layer10">
+
+<canvas id="particleCanvas"></canvas>
+
+<div class="glass">
+
+<h2>❤️ Something Magical ❤️</h2>
+
+<p>
+Watch carefully...
+</p>
+
+<button onclick="openLetterPage()">
+Continue ✨
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- LAYER 11 : LETTER FROM ADITYA -->
+<!-- ========================= -->
+
+<section class="screen" id="layer11">
+
+<div class="glass">
+
+<h2>✍️ A Message From Aditya</h2>
+
+<div id="handwriting"></div>
+
+<button onclick="openNightSky()">
+Look At The Sky 🌙
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- LAYER 12 : NIGHT SKY -->
+<!-- ========================= -->
+
+<section class="screen" id="layer12">
+
+<div id="nightSky"></div>
+
+<div class="glass">
+
+<h1>🌙</h1>
+
+<h2>The Sky Has Something To Say</h2>
+
+<div id="starName"></div>
+
+<p>
+Some names shine brighter than stars.
+</p>
+
+</div>
+
+</section>
+
+<style>
+
+#particleCanvas{
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+
+}
+
+#handwriting{
+
+font-family:cursive;
+font-size:1.3rem;
+line-height:2;
+white-space:pre-wrap;
+min-height:250px;
+
+}
+
+#nightSky{
+
+position:absolute;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+to bottom,
+#020111,
+#0d1b40,
+#000
+);
+
+z-index:-2;
+
+}
+
+.skyStar{
+
+position:absolute;
+color:white;
+animation:twinkle 2s infinite;
+
+}
+
+#starName{
+
+font-size:5rem;
+font-weight:bold;
+
+text-shadow:
+0 0 10px white,
+0 0 30px white,
+0 0 50px #87cefa;
+
+margin:20px;
+
+}
+
+</style>
+
+<script>
+
+/* REPLACE startHeartRain() */
+
+function startHeartRain(){
+
+document.getElementById("layer9")
+.classList.remove("active");
+
+document.getElementById("layer10")
+.classList.add("active");
+
+startParticleName();
+
+}
+
+/* PARTICLE NAME */
+
+function startParticleName(){
+
+const canvas=
+document.getElementById("particleCanvas");
+
+const ctx=
+canvas.getContext("2d");
+
+canvas.width=
+window.innerWidth;
+
+canvas.height=
+window.innerHeight;
+
+const name=
+document.getElementById("girlName").value;
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+ctx.fillStyle="white";
+
+ctx.font="bold 140px Arial";
+
+ctx.textAlign="center";
+
+ctx.fillText(
+
+name,
+
+canvas.width/2,
+
+canvas.height/2
+
+);
+
+const image=
+ctx.getImageData(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+let particles=[];
+
+for(let y=0;y<image.height;y+=6){
+
+for(let x=0;x<image.width;x+=6){
+
+let index=
+(y*4*image.width)+(x*4);
+
+if(image.data[index+3]>128){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+tx:x,
+
+ty:y
+
+});
+
+}
+
+}
+
+}
+
+function animate(){
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+particles.forEach(p=>{
+
+p.x+=(p.tx-p.x)*0.05;
+
+p.y+=(p.ty-p.y)*0.05;
+
+ctx.fillStyle="#ff4d8d";
+
+ctx.beginPath();
+
+ctx.arc(
+p.x,
+p.y,
+2,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+});
+
+requestAnimationFrame(
+animate
+);
+
+}
+
+animate();
+
+}
+
+/* LETTER PAGE */
+
+function openLetterPage(){
+
+document.getElementById("layer10")
+.classList.remove("active");
+
+document.getElementById("layer11")
+.classList.add("active");
+
+writeLetter();
+
+}
+
+let letterDone=false;
+
+function writeLetter(){
+
+if(letterDone)return;
+
+letterDone=true;
+
+const name=
+document.getElementById("girlName").value;
+
+const text=
+
+"Dear " + name + ",\n\n" +
+
+"I never planned this little journey.\n\n" +
+
+"But somewhere between ordinary moments and random conversations, I found myself appreciating your presence more than I expected.\n\n" +
+
+"You have a way of making simple moments memorable.\n\n" +
+
+"Whatever the future brings, I hope life keeps giving you reasons to smile.\n\n" +
+
+"— Aditya ❤️";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById(
+"handwriting"
+).innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,45);
+
+}
+
+}
+
+type();
+
+}
+
+/* NIGHT SKY */
+
+function openNightSky(){
+
+document.getElementById("layer11")
+.classList.remove("active");
+
+document.getElementById("layer12")
+.classList.add("active");
+
+const name=
+document.getElementById("girlName").value;
+
+document.getElementById(
+"starName"
+).innerHTML=name;
+
+for(let i=0;i<250;i++){
+
+let star=
+document.createElement("div");
+
+star.classList.add("skyStar");
+
+star.innerHTML="✦";
+
+star.style.left=
+Math.random()*100+"vw";
+
+star.style.top=
+Math.random()*100+"vh";
+
+star.style.fontSize=
+(Math.random()*10+8)+"px";
+
+document.body.appendChild(
+star
+);
+
+}
+
+}
+
+</script>
+```
+
+
+</body>
+</html>
+```
